@@ -6,16 +6,15 @@
 #    3
 #   -> 1
 
-lst = [10, 5, 7, 3, 3, 0, 5, 7, 2, 8]
-x = int(input("Введите число Х: "))
-print(lst)
-count = 0
-for el in range(len(lst)):
-    if x == lst[el]:
-        count += 1
-if count > 0:
-    print(count)
+N = abs(int(input('Введите количество элементов массива: ')))
+A_entered = input("Введите через пробел числа - элементы массива: ").split()
+A_num = list(map(int, A_entered))
+if len(A_num) != N:
+    print('количество элементов не соответствует заданному выше')
 else:
-    print(-1)
-
-print(count if count > 0 else -1)
+    X = int(input('Введите число, которое нужно найти в массиве: '))
+    count = 0
+    for i in range(N):
+        if A_num[i] == X:
+            count += 1
+    print(f'Число {X} встречается в массиве {count} раз(а)') 

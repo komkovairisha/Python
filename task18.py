@@ -9,12 +9,18 @@
 #   6
 #    -> 5
 
-lst = [10, 5, 7, 3, 3, 2, 5, 7, 3, 8]
-x = int(input("Введите число Х: "))
-print(lst)
-
-num = lst[0]
-for idx in lst:
-    if abs(idx - x) < abs(num - x):
-        num = idx
-print(num)
+N = abs(int(input('Введите количество элементов в массиве: ')))
+A_entered = input("Введите через пробел целые числа - элементы массива: ").split()
+A_num = list(map(int, A_entered))
+if len(A_num) != N or N == 0:
+    print('количество элементов не соответствуют заданному выше')
+else:
+    X = int(input('Введите число, с которым нужно сравнить элементы массива: '))
+    min = abs(X - A_num[0])
+    index = 0
+    for i in range(1, N):
+        count = abs(X - A_num[i])
+        if count < min:
+            min = count
+            index = i
+    print(f'в массиве, самое близкое по величине к числу {X} - число {A_num[index]} ,их разница составляет {abs(X - A_num[index])}')
